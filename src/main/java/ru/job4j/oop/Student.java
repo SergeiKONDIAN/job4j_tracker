@@ -19,6 +19,8 @@ public class Student {
         petya.music();
         petya.music();
         petya.song();
+        petya.song();
+        petya.song();
 
         String song = "I belive, I can fly";
         petya.music(song);
