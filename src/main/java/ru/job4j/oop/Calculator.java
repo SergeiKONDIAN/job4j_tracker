@@ -2,7 +2,7 @@ package ru.job4j.oop;
 
 public class Calculator {
 
-    private final static int x = 5;
+    private static int x = 5;
 
     public static int sum(int y) {
         return x + y;
