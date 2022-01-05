@@ -21,4 +21,12 @@ public class PointTest {
         double rls = a.distance(b);
         assertEquals(rls, 16.64, 0.01);
     }
+
+    @Test
+    public void distance3d() {
+        Point a = new Point(0, 0, 0);
+        Point b = new Point(3, 4, 5);
+        double rls = a.distance3d(b);
+        assertEquals(7.07, rls, 0.01);
+    }
 }
