@@ -16,4 +16,10 @@ public class MaxTest {
         int rls = Max.max(-30, 30, 30);
         assertEquals(rls, 30);
     }
+
+    @Test
+    public void max1000() {
+        int rls = Max.max(-30, 30, 30, 1000);
+        assertEquals(1000, rls);
+    }
 }
