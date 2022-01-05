@@ -11,7 +11,7 @@ public class Programm {
         this.version = version;
     }
 
-    public void setVersion(int version){
+    public void setVersion(int version) {
         this.version = version;
     }
 }
