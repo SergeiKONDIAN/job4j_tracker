@@ -4,11 +4,8 @@ public class Doctor extends Profession {
 
     private boolean extraCourses;
 
-    public Doctor() {
-        }
-
-    public Doctor(boolean extraCourses) {
-        super();
+    public Doctor(String name, String surname, String education, String birthday, boolean extraCourses) {
+        super(name, surname, education, birthday);
         this.extraCourses = extraCourses;
     }
 
