@@ -10,8 +10,11 @@ public class StartUI {
         Item item = new Item();
         LocalDateTime date = item.getCreationDate();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-EEEE-yyyy HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         String dateFormated = date.format(formatter);
         System.out.println(dateFormated);
+
+        Item itemToString = new Item(100, "John");
+        System.out.println(itemToString.toString());
     }
 }
