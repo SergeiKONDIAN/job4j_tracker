@@ -30,7 +30,7 @@ public class Library {
         System.out.println();
         for (int i = 0; i < lib.length; i++) {
             Book bk = lib[i];
-            if (bk.getTitle().equals("Clean code")) {
+            if ("Clean code".equals(bk.getTitle())) {
                 System.out.println(bk.getTitle() + " - " + bk.getPageNum());
             }
         }
