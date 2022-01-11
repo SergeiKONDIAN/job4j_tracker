@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.Input;
+
 public class StubInput implements Input {
 
     @Override
