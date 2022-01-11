@@ -16,7 +16,7 @@ public class FindEl {
     }
 
     public static void main(String[] args) {
-        String[] value = new String[]{"one", "two", "three"};
+        String[] value = new String[] {"one", "two", "three"};
         String key = "uno";
         try {
             FindEl.indexOf(value, key);
