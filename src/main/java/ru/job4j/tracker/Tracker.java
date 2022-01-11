@@ -61,11 +61,10 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items[index] = item;
             item.setId(id);
-            return true;
+            items[index] = item;
         }
-        return false;
+        return rsl;
     }
 
     public boolean delete(int id) {
