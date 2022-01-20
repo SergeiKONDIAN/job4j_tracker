@@ -38,9 +38,14 @@ public class StartUITest {
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("item for deleting");
+        UserAction userAction = new DeleteItemAction();
         tracker.add(item);
         int idDeleted = item.getId();
-        tracker.delete(idDeleted);
-        assertNull(tracker.findById(idDeleted));
+        String[] answers = {
+                String.valueOf(idDeleted)
+        };
+        userAction.execute(new StubInput(answers), tracker);
+        Item deleted = tracker.findById(idDeleted);
+        assertNull(deleted);
     }
 }
