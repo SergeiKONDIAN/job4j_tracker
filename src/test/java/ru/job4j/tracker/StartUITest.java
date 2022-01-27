@@ -178,7 +178,6 @@ public class StartUITest {
                         + "0. Find items by name" + ln
                         + "1. Exit Program" + ln
                         + "=== Find items by name ===" + ln
-                        //+ "Enter name: " + ln
                         + one.toString() + ln
                         + "Menu:" + ln
                         + "0. Find items by name" + ln
