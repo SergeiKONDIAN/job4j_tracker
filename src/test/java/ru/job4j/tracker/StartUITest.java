@@ -185,6 +185,4 @@ public class StartUITest {
                         + "=== Exit Program ===" + ln
         ));
     }
-
-    // FindByNameAction, FindByIdAction.
 }
