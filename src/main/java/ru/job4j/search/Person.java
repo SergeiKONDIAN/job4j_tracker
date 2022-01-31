@@ -28,11 +28,4 @@ public class Person {
     public String getAddress() {
         return address;
     }
-
-    public boolean contains(String key) {
-        return this.name.contains(key)
-                || this.surname.contains(key)
-                || this.phone.contains(key)
-                || this.address.contains(key);
-    }
 }
