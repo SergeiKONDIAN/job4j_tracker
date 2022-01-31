@@ -191,9 +191,8 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
-        String idToFind = "1";
         Input in = new StubInput(
-                new String[] {"0", idToFind, "1"}
+                new String[] {"0", String.valueOf(one.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindItemByIdAction(out),
