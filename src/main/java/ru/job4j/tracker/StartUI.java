@@ -30,7 +30,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput(output);
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] userActions = {
                 new CreateAction(output), new ShowAllAction(output), new EditAction(output),  new DeleteItemAction(output),
