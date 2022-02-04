@@ -37,7 +37,7 @@ public class ValidateInputTest {
                 new String[] {"0", "1", "4", "10"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected[] = new int[4];
+        int[] selected = new int[4];
         for (int i = 0; i < 4; i++) {
             selected[i] = input.askInt("Enter menu:");
         }
