@@ -40,7 +40,7 @@ public class ValidateInputTest {
         int selected1 = input.askInt("Enter menu:");
         int selected4 = input.askInt("Enter menu:");
         int selected10 = input.askInt("Enter menu:");
-        int[] answer = { 0, 1, 4, 10};
+        int[] answer = {0, 1, 4, 10};
         int[] selected = new int[]{selected0, selected1, selected4, selected10};
         assertThat(selected, is(answer));
     }
