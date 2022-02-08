@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -37,11 +36,12 @@ public class ValidateInputTest {
                 new String[] {"0", "1", "4", "10"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int[] selected = new int[4];
-        for (int i = 0; i < 4; i++) {
-            selected[i] = input.askInt("Enter menu:");
-        }
-        int[] answer = {0, 1, 4, 10};
+        int selected0 = input.askInt("Enter menu:");
+        int selected1 = input.askInt("Enter menu:");
+        int selected4 = input.askInt("Enter menu:");
+        int selected10 = input.askInt("Enter menu:");
+        int[] answer = { 0, 1, 4, 10};
+        int[] selected = new int[]{selected0, selected1, selected4, selected10};
         assertThat(selected, is(answer));
     }
 
