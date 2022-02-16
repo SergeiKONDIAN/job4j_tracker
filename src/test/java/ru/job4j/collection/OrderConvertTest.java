@@ -17,4 +17,19 @@ public class OrderConvertTest {
         HashMap<String, Order> map = OrderConvert.process(orders);
         assertThat(map.get("3sfe"), is(new Order("3sfe", "Dress")));
     }
+
+    @Test
+    public void whenHasDuplicates() {
+        List<Order> orders = new ArrayList<>();
+        orders.add(new Order("3sfe", "Dress"));
+        orders.add(new Order("3sfe", "Dress"));
+        orders.add(new Order("3sfe", "Dress"));
+        orders.add(new Order("5tyn", "Hat"));
+        orders.add(new Order("5tyn", "Hat"));
+        HashMap<String, Order> map = OrderConvert.process(orders);
+        HashMap<String, Order> answer = new HashMap<>();
+        answer.put("3sfe", new Order("3sfe", "Dress"));
+        answer.put("5tyn", new Order("5tyn", "Hat"));
+        assertThat(map, is(answer));
+    }
 }
