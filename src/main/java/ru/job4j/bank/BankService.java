@@ -13,9 +13,12 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        List<Account> acList = users.get(findByPassport(passport));
-        if (!acList.contains(account)) {
-            acList.add(account);
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> acList = users.get(user);
+            if (!acList.contains(account)) {
+                acList.add(account);
+            }
         }
     }
 
@@ -46,13 +49,9 @@ public class BankService {
         boolean rsl = false;
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
         Account destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount == null || destAccount == null || srcAccount.getBalance() < amount) {
-            return rsl;
-        } else {
-            double balanceSrcNew =  srcAccount.getBalance() - amount;
-            double balanceDestNew =  destAccount.getBalance() + amount;
-            srcAccount.setBalance(balanceSrcNew);
-            destAccount.setBalance(balanceDestNew);
+        if (srcAccount != null || destAccount != null || srcAccount.getBalance() >= amount) {
+            srcAccount.setBalance(srcAccount.getBalance() - amount);
+            destAccount.setBalance(destAccount.getBalance() + amount);
             rsl = true;
         }
         return rsl;
