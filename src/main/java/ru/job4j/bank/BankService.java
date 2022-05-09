@@ -2,9 +2,22 @@ package ru.job4j.bank;
 
 import java.util.*;
 
+/**
+ * Модель системы банковских переводов.
+ * @author СК.
+ * @version 1.0
+ */
+
 public class BankService {
+    /**
+     * Хранение данных осуществляется в коллекции типа HashMap
+     */
     private final Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Метод позволяет добавить пользователя в систему
+     * @param user - вновь вводимый в систему пользователь
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
@@ -19,6 +32,12 @@ public class BankService {
         }
     }
 
+    /**
+     * Методо осуществляет поиск пользователя в системе по его паспортным данным
+     * @param passport паспортные данные искомого пользователя
+     * @return метод возвращат искомого пользователя при наличии, либо
+     * Optional обёртку на null при отсутствии
+     */
     public Optional<User> findByPassport(String passport) {
         return users.keySet()
                 .stream()
@@ -26,6 +45,13 @@ public class BankService {
                 .findFirst();
     }
 
+    /**
+     * Метод осуществляет поиск счёта в системе по паспортным данным пользователя и реквизитам счёта
+     * @param passport паспортные данные пользователя
+     * @param requisite реквизиты счёта
+     * @return метод возвращат искомый счёт пользователя при наличии, либо
+     * Optional обёртку на null при отсутствии
+     */
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
@@ -37,6 +63,16 @@ public class BankService {
         return Optional.empty();
     }
 
+    /**
+     * Метод осуществяет перевод заданного объёма денежных средств с одного счёта на другой, возможны переводы как
+     * в рамках счётов одного пользователя, так и переводы от одного пользователя на счёт другого
+     * @param srcPassport паспортные данные пользователя, осуществляеющего перевод
+     * @param srcRequisite реквизиты счёта пользователя, осуществляющего перевод
+     * @param destPassport паспортные данные пользователя, получающего перевод
+     * @param destRequisite реквизиты счёта пользователя, получающего перевод
+     * @param amount количество переводимых средств
+     * @return статус выполнения операции: true - перевод выполнен, false - перевод не выполнен
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;

@@ -2,7 +2,18 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Модель пользователя банка.
+ * @author СК.
+ * @version 1.0
+ */
+
+
 public class User {
+    /**
+     * Идентификация пользователя осуществлятется на основании
+     * паспортных данных и имени
+      */
     private String passport;
     private String username;
 
