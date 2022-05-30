@@ -36,23 +36,22 @@ public class Analyze {
     }
 
     public static Tuple bestStudent(Stream<Pupil> stream) {
-        Optional<Tuple> tuple = stream.map(pupil -> new Tuple(
+        return stream.map(pupil -> new Tuple(
                         pupil.getName(),
                         pupil.getSubjects().stream()
                                 .mapToInt(Subject::getScore).sum()
                 ))
-                .max(Tuple::compareTo);
-        return tuple.orElseGet(() -> tuple.orElse(new Tuple("orElseTuple", -1)));
+                .max(Tuple::compareTo)
+                .orElse(null);
     }
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
-        Optional<Tuple> tuple = stream.flatMap(pupil -> pupil.getSubjects().stream())
+        return stream.flatMap(pupil -> pupil.getSubjects().stream())
                 .collect(Collectors.groupingBy(Subject::getName,
-                        LinkedHashMap::new,
                         Collectors.summingDouble(Subject::getScore)))
                 .entrySet().stream()
                 .map(k -> new Tuple(k.getKey(), k.getValue()))
-                .max(Tuple::compareTo);
-        return tuple.orElseGet(() -> tuple.orElse(new Tuple("orElseTuple", -1)));
+                .max(Tuple::compareTo)
+                .orElse(null);
     }
 }
