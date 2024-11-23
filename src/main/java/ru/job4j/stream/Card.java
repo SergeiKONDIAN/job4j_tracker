@@ -29,6 +29,5 @@ public class Card {
                 .flatMap(value -> Stream.of(Value.values())
                         .map(suit -> new Card(value, suit)))
                 .forEach(System.out::println);
-
     }
 }
